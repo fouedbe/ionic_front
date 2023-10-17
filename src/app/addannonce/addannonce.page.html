@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-title>add Annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+  
+    <form #myForm="ngForm" >
+      <ion-label>Title </ion-label>
+      <ion-input ngModel name="title"  class="form-control"  type="text"></ion-input>
+      <ion-label>desciption</ion-label>
+      <ion-input ngModel name="description" class="form-control" type="text"></ion-input>
+      <ion-label>Prix</ion-label>
+      <ion-input ngModel name="prix" class="form-group" type="text"></ion-input>
+      <ion-label>Image </ion-label>
+      <ion-input ngModel name="image"  class="form-control" (change)="onFileSelected($event)" type="file"></ion-input>
+   
+      <ion-button  color="primary"  expand="block" (click)="add(myForm)">Add</ion-button>
+      
+    </form>
+</ion-card>
+</ion-content>
+

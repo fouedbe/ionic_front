@@ -1,0 +1,112 @@
+<ion-app>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-title style="text-align: center;">home</ion-title>
+      <ion-menu contentId="main-content">
+        <ion-header>
+          <ion-toolbar color="tertiary">
+            <ion-title>Menu Content</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          
+          
+        </ion-content>
+      </ion-menu>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"><ion-button expand="block" routerLink="/profil">Profil</ion-button>
+      <ion-button expand="block" routerLink="/">Log out</ion-button></ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+  </div>
+
+<ion-content>
+  
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product" name="search" [(ngModel)]="searchText" autocomplete="on" ></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets\img\pc.jpg" />
+    <ion-card-header>
+      <ion-card-title>PC Del </ion-card-title>
+      <ion-card-subtitle>Dell i7</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Windows 11 Home - ASUS recommends Windows 11 Pro for business
+      Jusqu'au processeur de 13e Gen Intel® Core™ i9
+      Jusqu'a la carte graphique NVIDIA® GeForce RTX™ 4060
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets\img\tab1.jpg" />
+    <ion-card-header>
+      <ion-card-title>Pc Asus </ion-card-title>
+      <ion-card-subtitle>asus i5</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Windows 11 Home - ASUS recommends Windows 11 Pro for business
+      Jusqu'au processeur de 13e Gen Intel® Core™ i9
+      Jusqu'a la carte graphique NVIDIA® GeForce RTX™ 4060
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets\img\tab.jpg" />
+    <ion-card-header>
+      <ion-card-title>Pc Asus </ion-card-title>
+      <ion-card-subtitle>asus i5</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Windows 11 Home - ASUS recommends Windows 11 Pro for business
+      Jusqu'au processeur de 13e Gen Intel® Core™ i9
+      Jusqu'a la carte graphique NVIDIA® GeForce RTX™ 4060
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card  *ngFor="let item of dataArray " >
+      
+    <ion-card-header>
+      <ion-card-title>{{item.title}}</ion-card-title>
+     
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{item.description}}
+      {{item.prix}}
+      <img src="assets\img\tab2.jpg">
+    </ion-card-content>
+  </ion-card>
+  
+  
+  
+
+  
+
+</ion-content>
+</ion-app>

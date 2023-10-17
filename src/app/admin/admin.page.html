@@ -1,0 +1,115 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button expand="block" routerLink="/addannonce">Ajouter un annonce</ion-button>
+    <ion-button expand="block" routerLink="/adduser">Ajouter un user</ion-button>
+    <ion-button expand="block" routerLink="/home">home</ion-button>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header >
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Admin</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> 
+    <ion-segment value="default">
+      <ion-segment-button value="default">
+        <ion-label>Annonce</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="affich()"value="segment">
+        <ion-label>user</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+     <div *ngIf="!afficherDetails">
+    <ion-card  *ngFor="let item of dataArray;index as i" >
+      
+      <ion-card-header>
+        <ion-label>Name</ion-label>
+        <ion-card-title id="open-action-sheet">{{item.title}}</ion-card-title>
+       
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-label>description</ion-label>
+        {{item.description}}
+        {{item.prix}}
+        <div class="ion-text-end ion-margin-vertical">
+          <ion-button id="btn-effacer" color="danger" fill="outline"(click)=" delete(item._id)"> Effacer <ion-icon slot="start" name="close-outline"></ion-icon></ion-button>
+          <ion-button id="btn-ajouter" color="success" fill="outline"(click)="getdata(item.title,item.description,item.prix,item.image,item._id)" data-bs-toggle="modal" data-bs-target="#exampleModal" > <ion-icon slot="end" name="add-outline"></ion-icon>update</ion-button>
+
+      </div>
+      
+       
+      
+      </ion-card-content>
+      
+    </ion-card>
+    
+     </div>
+     <ion-action-sheet trigger="open-action-sheet" header="Actions" [buttons]="actionSheetButtons"></ion-action-sheet>
+     <div  *ngIf="afficherDetails">
+    <ion-card  *ngFor="let item of datauser">
+     
+      <ion-card-header>
+        <ion-label>Name</ion-label>
+        <ion-card-title (click)="setOpen(true)">{{item.username}}</ion-card-title>
+       
+      </ion-card-header>
+      <ion-label>email</ion-label>
+
+      <ion-card-content>
+        {{item.email}}
+        {{item.image}}
+        
+      </ion-card-content>
+      
+    </ion-card>
+  </div>
+  <ion-alert
+  [isOpen]="isAlertOpen"
+  header="Alert"
+  
+  subHeader="Important message"
+  message="This is an alert!"
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+></ion-alert>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier Annonce </h5>
+        
+      </div>
+      <div class="modal-body">
+      <ion-card>
+      <form #myForm="ngForm" >
+  
+        <ion-label>Title </ion-label>
+        <ion-input #title="ngModel" ngModel name="title"  [(ngModel)]="dataannonce.title"  class="form-control"  type="text"></ion-input>
+        <ion-label>description</ion-label>
+        <ion-input #description="ngModel" ngModel name="description" [(ngModel)]="dataannonce.description"class="form-control" type="text"></ion-input>
+        <ion-label>Prix</ion-label>
+        <ion-input #prix="ngModel"  ngModel name="prix" [(ngModel)]="dataannonce.prix" class="form-group" type="text"></ion-input>
+        <ion-label>Image </ion-label>
+        <ion-input #image="ngModel" ngModel  name="image" [(ngModel)]="dataannonce.image"  class="form-control" (change)="onFileSelected($event)" type="file"></ion-input>
+     
+        <ion-button  color="primary"  expand="block" (click)="updatenews(myForm)">update</ion-button>
+      
+      </form>
+    </ion-card>
+      </div>
+    </div>
+  </div>
+</div>
+  </ion-content>
+</div>

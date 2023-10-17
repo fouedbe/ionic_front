@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true" >
+  <div class="body">
+  <div class="header">
+    <ion-title class="title">welcome back</ion-title>
+    <p class="subtitle">sign to on access your  account</p>
+    <ion-img src="assets\img\logl.jpg"></ion-img>
+  </div>
+  <form #f="ngForm" >
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input placeholder="email"  ngModel name="email" class="input">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input  placeholder="password"  ngModel name="password"class="input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <div class="forgot">
+      <a style="color: #ffc33f;">forgot  password</a>
+    </div>
+    <div class="signup">
+      <p >New membre?<a style="color: #ffc33f;" routerLink="/signup">sign up</a></p>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end"style="margin-bottom:30px;">
+    <ion-fab-button   id="open-loading"  (click)="login(f)"  >
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+    <ion-loading class="custom-loading" trigger="open-loading" message="Loading..." [duration]="3000"></ion-loading>
+  </ion-fab>
+  </form>
+</div>
+</ion-content>

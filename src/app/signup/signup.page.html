@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true" >
+  <div class="body">
+  <div class="header">
+    <ion-title class="title">welcome back</ion-title>
+    <p class="subtitle">sign up to create  your  account</p>
+  </div>
+  <form #f="ngForm">
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input placeholder="username"  ngModel name="username"class="input">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="email" ngModel name="email" class="input">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input  placeholder="password"  ngModel name="password" class="input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+   
+    <div class="signup">
+      <p >Already a membre?<a style="color: #ffc33f;"(click)="register(f)" routerLink="/login">Sign </a></p>
+    </div>
+  </div>
+
+  </form>
+</div>
+</ion-content>
+
